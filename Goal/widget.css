@@ -1,116 +1,119 @@
 /* setting vaiables */
 :root {
-    --margin: 10px;
-    --gap: 5px;
+  --margin: {{MarginSize}}px;
+  --gap: {{GapSize}}px;
+
+  --shadow-x: {{ShadowX}}px;
+  --shadow-y: {{ShadowY}}px;
+  --shadow-blur: {{ShadowBlur}}px;
+  --shadow-setting: var(--shadow-x) var(--shadow-y) var(--shadow-blur);
+  --shadow-color: {{ShadowColor}};
+  --shadow: var(--shadow-setting) var(--shadow-color);
+
+  --font-family: {{CustomFontName}};
+  --text-size: {{FontSize}}px;
+  --text-color: {{FontColor}};
+  --text-weight: {{FontWeight}};
+
+  --symbol-size: {{SymbolSize}}px;
+
+  --bar-bg-settings: {{BarSettings}};
+
+  --bar-fg-color: {{BarFgColor}};
+  --bar-bg-color: {{BarBgColor}};
+  --bar-width: {{BarWidth}}px;
+}
+
+body {
+  /* background-color: #000000; */
+  height: 100vh;
+
+  font-family: var(--font-family);
+  font-weight: var(--text-weight);
+  font-size: var(--text-size);
+  color: var(--text-color);
+}
+
+#goal-bar {
+  display: flex;
+  gap: var(--gap);
+  flex-flow: column nowrap;
+  align-items: flex-start;
   
-    --text-size: 30px;
-    --text-color: #F8F4E3;
+  height: calc(100% - 2 * var(--margin));
+  margin: var(--margin);
+
+  filter: drop-shadow(var(--shadow));
+}
+
+#bar-container {
+  flex-grow: 1;
+  position: relative;
+  width: 100%;
+}
+
+/* adding dynamic parts on top of static parts */
+#static-parts, #dynamic-parts{
+  display: flex;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+#dynamic-parts {
+  height: 56%;
+  z-index: 10;
+}
+
+#bar-background, #bar-foreground {
+  display: flex;
+  justify-content: left;
   
-    --symbol-size: 40px;
+  height: calc(100% - var(--text-size) * 1.34 / 2);
   
-    --bar-foreground-color: #000000;
-    --bar-background-color: #F3ECCE;
-    --stroke-width: 5px;
+  margin-left: calc(var(--symbol-size) / 2 - 1px);
+  margin-right: calc(var(--symbol-size) / 5);
+  margin-top: calc(var(--text-size) * 1.34 / 2);
+}
+
+/* svg */
+.svg-line {
+  padding-block: calc(var(--bar-width) / 2);
+  height: calc(100% - var(--bar-width));
+  overflow: visible;
+}
+
+.line {
+  stroke-width: var(--bar-width);
+  stroke-linecap: round;
+}
+
+#bar-background .line {
+  stroke: var(--bar-bg-color);
+  stroke-dasharray: var(--bar-bg-settings);
+}
+
+#bar-foreground .line {
+  stroke: var(--bar-fg-color);
+}
+
+/* goal value setting */
+#goal-top, #goal-mid {
+  display: flex;
+}
+
+/* bottom symbol */
+#symbol {
+  height: var(--symbol-size);
+  width: var(--symbol-size);
   
-    --background-color: #21292E;
-  
-    --bar-width: calc(calc(var(--symbol-size) - var(--stroke-width)) / 2);
-  }
-  
-  body {
-    /* background-color: #000000; */
-    height: 100vh;
-  
-    font-family: 'Shantell Sans', cursive;
-    font-weight: 530;
-    font-size: var(--text-size);
-    color: var(--text-color);
-  }
-  
-  #goal-bar {
-    display: flex;
-    gap: var(--gap);
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    
-    height: calc(100% - 2 * var(--margin));
-    margin: var(--margin);
-    
-    /* background-color: var(--background-color); */
-  }
-  
-  #bar-container {
-    flex-grow: 1;
-    position: relative;
-  }
-  
-  /* adding dynamic parts on top of static parts */
-  #static-parts, #dynamic-parts{
-    display: flex;
-    height: 100%;
-    position: absolute;
-    bottom: 0;
-  }
-  
-  #dynamic-parts {
-    height: 56%;
-    z-index: 10;
-  }
-  
-  #bar-background, #bar-foreground {
-    display: flex;
-    justify-content: left;
-    
-    height: calc(100% - var(--text-size) * 1.34 / 2);
-    
-    margin-left: calc(var(--symbol-size) / 2 - 1px);
-    margin-right: calc(var(--symbol-size) / 5);
-    margin-top: calc(var(--text-size) * 1.34 / 2);
-  }
-  
-  /* svg */
-  .svg-line {
-    padding-block: calc(var(--stroke-width) / 2);
-    height: calc(100% - var(--stroke-width));
-    overflow: visible;
-  }
-  
-  .line {
-    stroke-width: var(--stroke-width);
-    stroke-linecap: round;
-  }
-  
-  #bar-background .line {
-    stroke: var(--bar-background-color);
-    stroke-dasharray: 5px 15px;
-    opacity: 60%;
-  }
-  
-  #bar-foreground .line {
-    stroke: var(--bar-foreground-color);
-  }
-  
-  /* goal value setting */
-  #goal-top, #goal-mid {
-    display: flex;
-  }
-  
-  /* bottom symbol */
-  #symbol {
-    height: var(--symbol-size);
-    width: var(--symbol-size);
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* not usable later */
-    font-size: 28px
-  }
-  
-  /* text showing when no image is found */
-  .img-alt-text {
-    font-size: 8px;
-    opacity: 70%;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.symbol {
+  width: var(--symbol-size);
+  object-fit: contain;
+  font-size: 8px;
+}

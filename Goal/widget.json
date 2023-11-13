@@ -1,7 +1,144 @@
 {
+    "MarginSize": {
+        "type": "number",
+        "group": "General",
+        "label": "Margin size",
+        "value": 10,
+        "min": 0,
+        "step": 1
+    },
+    "GapSize": {
+        "type" : "number",
+        "group": "General",
+        "label": "Gap between symbol and bar",
+        "value": 5,
+        "min": 0,
+        "step": 0.5
+    },
+    "ShadowX": {
+        "type": "number",
+        "group": "General",
+        "label": "Shadow offset in x axis",
+        "value": 3,
+        "step": 0.5
+    },
+    "ShadowY": {
+        "type": "number",
+        "group": "General",
+        "label":"Shadow offset in y axis",
+        "value": 5,
+        "step": 0.5
+    },
+    "ShadowBlur": {
+        "type": "number",
+        "group": "General",
+        "label": "Blur of the shadow",
+        "value": 1,
+        "step": 0.5
+    },
+    "ShadowColor": {
+        "type": "colorpicker",
+        "group": "General",
+        "label": "Color of the shadow",
+        "value": "rgba(56, 61, 68, 50)"
+    },
+    "UseGoogleFont": {
+        "type": "checkbox",
+        "group": "Text",
+        "label": "Use google font WIP"
+    },
+    "FontName": {
+        "type": "googleFont",
+        "group": "Text",
+        "label": "Google font name WIP",
+        "value": "Abel"
+    },
+    "FontLink": {
+        "type": "",
+        "group": "Text",
+        "label": "Url font link",
+        "value": "https://fonts.googleapis.com/css2?family=Shantell+Sans"
+    },
+    "CustomFontName": {
+        "type": "text",
+        "group": "Text",
+        "label": "Custom font name",
+        "value": "Shantell Sans"
+    },
+    "FontSize": {
+        "type": "number",
+        "group": "Text",
+        "label": "Text size",
+        "value": 30,
+        "min": 1,
+        "max": 256,
+        "step": 1
+    },
+    "FontWeight": {
+        "type": "slider",
+        "group": "Text",
+        "label": "Text thickness",
+        "value": 530,
+        "min": 300,
+        "max": 800,
+        "step": 10
+    },
+    "FontColor": {
+        "type": "colorpicker",
+        "group": "Text",
+        "label": "Color of the text",
+        "value": "#F8F4E3"
+    },
+    "SymbolSize": {
+        "type": "number",
+        "group": "Symbol",
+        "label": "Size of the Symbol",
+        "value": 40,
+        "min": 0,
+        "step": 1
+    },
+    "SymbolImg": {
+        "type": "image-input",
+        "group": "Symbol",
+        "label": "Symbol Image"
+    },
+    "BarWidth": {
+        "type": "number",
+        "group": "Bar",
+        "label": "Width of the bar",
+        "value": 5,
+        "min": 0,
+        "step": 0.5
+    },
+    "BarSettings": {
+        "type": "text",
+        "group": "Bar",
+        "label": "Stroke settings for bar background",
+        "value": "5px 15px"
+    },
+    "BarFgColor": {
+        "type": "colorpicker",
+        "group": "Bar",
+        "label": "Color of the bar in the background",
+        "value": "rgb(248, 244, 227)"
+    },
+    "BarBgColor": {
+        "type": "colorpicker",
+        "group": "Bar",
+        "label": "Color of the bar in the foreground",
+        "value": "rgba(248, 244, 227, 50)"
+    },
     "widgetName": {
         "type": "hidden",
          "value": "Goal widget"
+    },
+    "widgetAutor": {
+        "type": "hidden",
+        "value": "SPancerfautyna"
+    },
+    "widgetVersion":{
+        "type": "hidden",
+        "value": "0.5.0"
     },
     "widgetUpdateUrl": {
         "type": "hidden",
