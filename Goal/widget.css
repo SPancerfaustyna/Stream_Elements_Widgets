@@ -1,0 +1,116 @@
+/* setting vaiables */
+:root {
+    --margin: 10px;
+    --gap: 5px;
+  
+    --text-size: 30px;
+    --text-color: #F8F4E3;
+  
+    --symbol-size: 40px;
+  
+    --bar-foreground-color: #F8F4E3;
+    --bar-background-color: #F3ECCE;
+    --stroke-width: 5px;
+  
+    --background-color: #21292E;
+  
+    --bar-width: calc(calc(var(--symbol-size) - var(--stroke-width)) / 2);
+  }
+  
+  body {
+    /* background-color: #000000; */
+    height: 100vh;
+  
+    font-family: 'Shantell Sans', cursive;
+    font-weight: 530;
+    font-size: var(--text-size);
+    color: var(--text-color);
+  }
+  
+  #goal-bar {
+    display: flex;
+    gap: var(--gap);
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    
+    height: calc(100% - 2 * var(--margin));
+    margin: var(--margin);
+    
+    /* background-color: var(--background-color); */
+  }
+  
+  #bar-container {
+    flex-grow: 1;
+    position: relative;
+  }
+  
+  /* adding dynamic parts on top of static parts */
+  #static-parts, #dynamic-parts{
+    display: flex;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  #dynamic-parts {
+    height: 56%;
+    z-index: 10;
+  }
+  
+  #bar-background, #bar-foreground {
+    display: flex;
+    justify-content: left;
+    
+    height: calc(100% - var(--text-size) * 1.34 / 2);
+    
+    margin-left: calc(var(--symbol-size) / 2 - 1px);
+    margin-right: calc(var(--symbol-size) / 5);
+    margin-top: calc(var(--text-size) * 1.34 / 2);
+  }
+  
+  /* svg */
+  .svg-line {
+    padding-block: calc(var(--stroke-width) / 2);
+    height: calc(100% - var(--stroke-width));
+    overflow: visible;
+  }
+  
+  .line {
+    stroke-width: var(--stroke-width);
+    stroke-linecap: round;
+  }
+  
+  #bar-background .line {
+    stroke: var(--bar-background-color);
+    stroke-dasharray: 5px 15px;
+    opacity: 60%;
+  }
+  
+  #bar-foreground .line {
+    stroke: var(--bar-foreground-color);
+  }
+  
+  /* goal value setting */
+  #goal-top, #goal-mid {
+    display: flex;
+  }
+  
+  /* bottom symbol */
+  #symbol {
+    height: var(--symbol-size);
+    width: var(--symbol-size);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* not usable later */
+    font-size: 28px
+  }
+  
+  /* text showing when no image is found */
+  .img-alt-text {
+    font-size: 8px;
+    opacity: 70%;
+  }
+  

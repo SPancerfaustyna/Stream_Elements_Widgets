@@ -1,0 +1,10 @@
+{
+    "widgetName": {
+        "type": "hidden",
+         "value": "Goal widget"
+    },
+    "widgetUpdateUrl": {
+        "type": "hidden",
+        "value": ""
+    }
+}
